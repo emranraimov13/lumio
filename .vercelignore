@@ -1,0 +1,7 @@
+public/generated/*
+!public/generated/.gitkeep
+preview.png
+*.log
+.DS_Store
+node_modules
+.vercel

@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumio — AI-студия: чат, сайты, картинки</title>
+  <meta name="description" content="Lumio — умный ИИ-ассистент, студия сайтов и генератор изображений в одном красивом пространстве. Подключайте Claude, Gemini, OpenRouter или любую модель." />
+  <meta name="theme-color" content="#05060b" />
+  <meta property="og:title" content="Lumio — AI-студия" />
+  <meta property="og:description" content="Чат, сайты и картинки — в одном красивом AI-пространстве. Без сборки и лишней сложности." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3CradialGradient id='g' cx='35%25' cy='28%25' r='80%25'%3E%3Cstop offset='0' stop-color='%23e4deff'/%3E%3Cstop offset='.32' stop-color='%238b7bff'/%3E%3Cstop offset='.72' stop-color='%23241a7a'/%3E%3Cstop offset='1' stop-color='%230a0a18'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='30' fill='url(%23g)'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/landing.css" />
+</head>
+<body class="landing-open">
+  <svg class="svg-sprite" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4.5 4.5"/></symbol>
+      <symbol id="i-settings" viewBox="0 0 24 24"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.38a2 2 0 0 0-.73-2.73l-.15-.09a2 2 0 0 1-1-1.74v-.51a2 2 0 0 1 1-1.73l.15-.08a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+      <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+      <symbol id="i-stop" viewBox="0 0 24 24"><rect x="6.5" y="6.5" width="11" height="11" rx="2"/></symbol>
+      <symbol id="i-clip" viewBox="0 0 24 24"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+      <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.64-6.36M21 3v6h-6"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></symbol>
+      <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6h14"/></symbol>
+      <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+      <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z"/></symbol>
+      <symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></symbol>
+      <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z"/></symbol>
+      <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+      <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+      <symbol id="i-eye-off" viewBox="0 0 24 24"><path d="M10.6 5.1A10.8 10.8 0 0 1 12 5c6.5 0 10 7 10 7a17.8 17.8 0 0 1-3.2 4.2M6.6 6.6C3.6 8.6 2 12 2 12s3.5 7 10 7a10.7 10.7 0 0 0 5.4-1.4M2 2l20 20"/></symbol>
+      <symbol id="i-key" viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="4.5"/><path d="m10.7 12.3 9.8-9.8M17 5.5l3 3M14.5 8l3 3"/></symbol>
+      <symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+      <symbol id="i-hourglass" viewBox="0 0 24 24"><path d="M6 2h12M6 22h12M7 2c0 4.2 2.1 6.4 5 8-2.9 1.6-5 3.8-5 8M17 2c0 4.2-2.1 6.4-5 8 2.9 1.6 5 3.8 5 8"/><path d="M9.5 5.5h5M9.5 18.5h5" opacity=".45"/></symbol>
+      <symbol id="i-arrow-ne" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+      <symbol id="i-logo" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18" opacity=".25"/><circle cx="12" cy="12" r="3.5" fill="currentColor" stroke="none"/></symbol>
+      <symbol id="i-layout" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></symbol>
+      <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></symbol>
+      <symbol id="i-library" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></symbol>
+      <symbol id="i-wand" viewBox="0 0 24 24"><path d="M15 4V2M15 10V8M8 9h2M20 9h2M17.8 11.8 19 13M17.8 6.2 19 5M3 21l9-9M12.2 6.2 11 5"/></symbol>
+      <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M12 18h.01"/></symbol>
+      <symbol id="i-external" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></symbol>
+      <symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></symbol>
+      <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+      <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 4 9 15 15 0 0 1-4 9 15 15 0 0 1-4-9 15 15 0 0 1 4-9z"/></symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 9 5-9 5-9-5 9-5zM3 12l9 5 9-5M3 17l9 5 9-5"/></symbol>
+      <symbol id="i-maximize" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3M16 21h3a2 2 0 0 0 2-2v-3"/></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path d="M6 3l14 9-14 9V3z"/></symbol>
+    </defs>
+  </svg>
+
+  <div class="aurora" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+    <span class="aurora-grid"></span>
+    <span class="grain"></span>
+  </div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <div class="landing" id="landing">
+    <a class="landing-skip" href="#landingFeatures">К возможностям</a>
+
+    <header class="landing-nav" id="landingTop">
+      <a class="landing-brand" href="#landingTop" aria-label="Lumio — на главную">
+        <span class="landing-brand-mark">
+          <svg class="icon"><use href="#i-hourglass"/></svg>
+        </span>
+        <span class="landing-brand-name">Lumio</span>
+        <span class="landing-brand-tag">hourglass</span>
+      </a>
+
+      <nav class="landing-links" aria-label="Навигация по сайту">
+        <a href="#landingFeatures">Возможности</a>
+        <a href="#landingHow">Как работает</a>
+        <a href="#landingFree">Без ключей</a>
+      </nav>
+
+      <div class="landing-nav-actions">
+        <button class="landing-user" id="landingUser" type="button" hidden>
+          <span class="avatar avatar-sm" id="landingUserAvatar">A</span>
+          <span class="landing-user-copy">
+            <strong id="landingUserNick">Гость</strong>
+            <small id="landingUserEmail">локальный аккаунт</small>
+          </span>
+        </button>
+        <button class="landing-ghost" id="landingLoginBtn" type="button">Войти</button>
+        <button class="landing-primary" id="landingStartBtn" type="button">
+          <span class="btn-shine"></span>Начать бесплатно
+        </button>
+      </div>
+    </header>
+
+    <main class="landing-main">
+      <section class="landing-hero" aria-labelledby="landingTitle">
+        <div class="landing-hero-copy">
+          <div class="landing-eyebrow">
+            <span class="landing-pulse"></span>
+            Lumio · AI-пространство
+          </div>
+          <h1 id="landingTitle">Сначала — сайт.<br /><span class="landing-grad">Потом — ИИ.</span></h1>
+          <p class="landing-lead">
+            Красивый лендинг, который переворачивается в личную AI-студию.
+            Чат, сайты и картинки — без API-ключей и лишних настроек.
+          </p>
+
+          <div class="landing-cta">
+            <button class="landing-primary landing-primary-lg" id="landingHeroStart" type="button">
+              <span class="btn-shine"></span>
+              <svg class="icon"><use href="#i-hourglass"/></svg>
+              Войти в пространство
+            </button>
+            <button class="landing-ghost landing-ghost-lg" id="landingHeroGuest" type="button">
+              Продолжить как гость
+            </button>
+          </div>
+
+          <div class="landing-trust">
+            <span><svg class="icon"><use href="#i-check"/></svg> Без ключей</span>
+            <span><svg class="icon"><use href="#i-check"/></svg> Данные в браузере</span>
+            <span><svg class="icon"><use href="#i-check"/></svg> Готово для Vercel</span>
+          </div>
+        </div>
+
+        <div class="landing-hero-visual" aria-hidden="true">
+          <div class="landing-halo"></div>
+          <div class="hourglass-scene">
+            <div class="hourglass-frame">
+              <span class="hourglass-cap cap-top"></span>
+              <span class="hourglass-glass">
+                <span class="sand-top"></span>
+                <span class="sand-stream"></span>
+                <span class="sand-bottom"></span>
+                <span class="glass-shine"></span>
+              </span>
+              <span class="hourglass-cap cap-bottom"></span>
+            </div>
+            <span class="orbit-chip chip-chat"><svg class="icon"><use href="#i-chat"/></svg> Чат</span>
+            <span class="orbit-chip chip-site"><svg class="icon"><use href="#i-layout"/></svg> Сайты</span>
+            <span class="orbit-chip chip-image"><svg class="icon"><use href="#i-image"/></svg> Картинки</span>
+          </div>
+
+          <div class="landing-mini-card">
+            <div class="mini-card-head">
+              <span class="mini-dot"></span>
+              <span>Aura · online</span>
+              <span class="mini-free">free</span>
+            </div>
+            <div class="mini-bubble">Собери сайт для кофейни «Север» — тёмный минимализм, меню и бронь.</div>
+            <div class="mini-reply">
+              <span class="mini-orb"></span>
+              <span>Уже собираю. Сначала структура, потом стиль и анимации.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="landing-strip" aria-label="Что умеет Lumio">
+        <span>ЧАТ</span><i>✦</i><span>ЛЕНДИНГИ</span><i>✦</i><span>КАРТИНКИ</span><i>✦</i><span>КОД</span><i>✦</i><span>ИДЕИ</span>
+      </section>
+
+      <section class="landing-section" id="landingFeatures">
+        <div class="landing-section-head">
+          <span class="landing-kicker">Возможности</span>
+          <h2>Одна студия.<br /><span class="landing-grad">Три суперсилы.</span></h2>
+          <p>От разговора до готового результата — без переключения между сервисами.</p>
+        </div>
+
+        <div class="landing-feature-grid">
+          <article class="landing-feature landing-feature-main">
+            <span class="landing-feature-icon fi-chat"><svg class="icon"><use href="#i-chat"/></svg></span>
+            <span class="landing-feature-num">01</span>
+            <h3>Умный диалог</h3>
+            <p>Объяснит сложное, напишет текст, разберёт код и поможет принять решение. Бесплатные модели уже подключены.</p>
+            <div class="landing-feature-demo">
+              <span class="demo-user">Объясни квантовую запутанность простыми словами</span>
+              <span class="demo-reply"><span class="mini-orb"></span> Две частицы связаны так, что измерение одной сразу определяет другую.</span>
+            </div>
+          </article>
+
+          <article class="landing-feature">
+            <span class="landing-feature-icon fi-site"><svg class="icon"><use href="#i-layout"/></svg></span>
+            <span class="landing-feature-num">02</span>
+            <h3>Студия сайтов</h3>
+            <p>Опишите идею — получите страницу со структурой, стилем, анимациями и адаптивом. Скачивание в один клик.</p>
+            <div class="landing-feature-tags"><span>HTML</span><span>CSS</span><span>JS</span></div>
+          </article>
+
+          <article class="landing-feature">
+            <span class="landing-feature-icon fi-image"><svg class="icon"><use href="#i-image"/></svg></span>
+            <span class="landing-feature-num">03</span>
+            <h3>Картинки из слов</h3>
+            <p>Кино, фото, 3D, аниме или неон. Каждый промпт — новый результат, без одинаковых шаблонов.</p>
+            <div class="landing-feature-tags"><span>Flux</span><span>4 стиля</span><span>без ключей</span></div>
+          </article>
+
+          <article class="landing-feature">
+            <span class="landing-feature-icon fi-live"><svg class="icon"><use href="#i-zap"/></svg></span>
+            <span class="landing-feature-num">04</span>
+            <h3>Живой интерфейс</h3>
+            <p>Стриминг ответов, плавные переходы, песочные часы и продуманные детали. Приятно пользоваться каждый день.</p>
+            <div class="landing-feature-tags"><span>60 fps</span><span>motion</span></div>
+          </article>
+
+          <article class="landing-feature">
+            <span class="landing-feature-icon fi-shield"><svg class="icon"><use href="#i-shield"/></svg></span>
+            <span class="landing-feature-num">05</span>
+            <h3>Приватность</h3>
+            <p>Аккаунты, история и библиотека — в вашем браузере. Пароль хешируется, ключи никуда не отправляются.</p>
+            <div class="landing-feature-tags"><span>local-first</span><span>PBKDF2</span></div>
+          </article>
+
+          <article class="landing-feature">
+            <span class="landing-feature-icon fi-globe"><svg class="icon"><use href="#i-globe"/></svg></span>
+            <span class="landing-feature-num">06</span>
+            <h3>Любые провайдеры</h3>
+            <p>OpenRouter, OpenAI, Anthropic, Gemini или свой OpenAI-совместимый сервер. Или бесплатный режим без ключа.</p>
+            <div class="landing-feature-tags"><span>OpenAI</span><span>Claude</span><span>Gemini</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="landing-section landing-how" id="landingHow">
+        <div class="landing-section-head">
+          <span class="landing-kicker">Как это работает</span>
+          <h2>Переверните пространство.<br /><span class="landing-grad">Начните создавать.</span></h2>
+        </div>
+
+        <div class="landing-steps">
+          <article class="landing-step">
+            <span class="step-hour"><svg class="icon"><use href="#i-hourglass"/></svg></span>
+            <span class="step-index">01</span>
+            <h3>Войдите или зайдите гостем</h3>
+            <p>Аккаунт создаётся за несколько секунд и живёт в этом браузере. Гостевой режим тоже работает.</p>
+          </article>
+          <article class="landing-step">
+            <span class="step-hour"><svg class="icon"><use href="#i-hourglass"/></svg></span>
+            <span class="step-index">02</span>
+            <h3>Пространство переворачивается</h3>
+            <p>Лендинг плавно уступает место AI-студии. Диалоги, проекты и настройки — уже внутри.</p>
+          </article>
+          <article class="landing-step">
+            <span class="step-hour"><svg class="icon"><use href="#i-hourglass"/></svg></span>
+            <span class="step-index">03</span>
+            <h3>Опишите идею словами</h3>
+            <p>«Сделай сайт для кофейни» или «нарисуй кота на Марсе» — Lumio сам выберет инструмент и выполнит запрос.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="landing-free" id="landingFree">
+        <div class="landing-free-copy">
+          <span class="landing-kicker">Без ключей</span>
+          <h2>0 ₽. 0 настроек.<br /><span class="landing-grad">Просто начните.</span></h2>
+          <p>Бесплатные модели уже подключены. Если одна загружена — Lumio автоматически переключится на следующую.</p>
+          <ul class="landing-checks">
+            <li><svg class="icon"><use href="#i-check"/></svg> Чат без API-ключа</li>
+            <li><svg class="icon"><use href="#i-check"/></svg> Сайты и картинки по промпту</li>
+            <li><svg class="icon"><use href="#i-check"/></svg> Свои ключи — по желанию</li>
+          </ul>
+          <button class="landing-primary landing-primary-lg" id="landingFreeStart" type="button">
+            <span class="btn-shine"></span>Попробовать бесплатно
+            <svg class="icon"><use href="#i-arrow-right"/></svg>
+          </button>
+        </div>
+        <div class="landing-free-visual" aria-hidden="true">
+          <div class="free-card">
+            <div class="free-card-head">
+              <span class="mini-dot"></span>
+              <span>Свободная модель</span>
+              <span class="mini-free">online</span>
+            </div>
+            <div class="free-models">
+              <span>Inkling 2 mini</span>
+              <span>GPT-6.2 Astra Pro</span>
+              <span>GPT-6.2 Sol Pro</span>
+              <span>Pollinations</span>
+              <span>Stable Horde</span>
+            </div>
+            <div class="free-meter"><i></i></div>
+            <p>Автопереключение при высокой нагрузке</p>
+          </div>
+          <div class="free-badge">free<span>forever</span></div>
+        </div>
+      </section>
+
+      <section class="landing-final">
+        <span class="landing-final-orb" aria-hidden="true"></span>
+        <div class="landing-final-copy">
+          <span class="landing-kicker">Готовы попробовать?</span>
+          <h2>Идея уже есть.<br /><span class="landing-grad">Осталось начать.</span></h2>
+          <p>Чат, сайты и картинки — в одном пространстве. Без установки и лишних шагов.</p>
+          <div class="landing-cta">
+            <button class="landing-primary landing-primary-lg" id="landingFinalStart" type="button">
+              <span class="btn-shine"></span>Начать бесплатно
+              <svg class="icon"><use href="#i-arrow-right"/></svg>
+            </button>
+            <button class="landing-ghost landing-ghost-lg" id="landingFinalGuest" type="button">Зайти как гость</button>
+          </div>
+        </div>
+        <span class="landing-final-mark" aria-hidden="true">Lumio</span>
+      </section>
+    </main>
+
+    <footer class="landing-footer">
+      <div class="landing-footer-brand">
+        <span class="landing-brand-mark small"><svg class="icon"><use href="#i-hourglass"/></svg></span>
+        <span>Lumio</span>
+      </div>
+      <span>AI-студия, которая начинается с красивого сайта</span>
+      <span>Данные локально · 2026</span>
+    </footer>
+  </div>
+
+  <div class="flip-overlay" id="flipOverlay" hidden aria-hidden="true">
+    <div class="flip-hourglass">
+      <span class="flip-cap"></span>
+      <span class="flip-glass"><i class="flip-sand"></i></span>
+      <span class="flip-cap"></span>
+    </div>
+    <p id="flipText">Переворачиваем пространство…</p>
+  </div>
+
+  <div class="app">
+    <aside class="sidebar" id="sidebar" aria-label="Меню">
+      <div class="sidebar-head">
+        <button class="brand" id="brandHome" aria-label="На главную">
+          <span class="orb orb-brand"></span>
+          <span class="brand-name">Lumio</span>
+          <span class="beta">beta</span>
+        </button>
+        <button class="icon-btn sidebar-close" id="sidebarClose" aria-label="Закрыть меню">
+          <svg class="icon"><use href="#i-close"/></svg>
+        </button>
+      </div>
+
+      <div class="main-nav-label">Пространство</div>
+      <nav class="main-nav" aria-label="Разделы">
+        <button class="nav-item active" data-page-link="chat">
+          <span class="nav-ico"><svg class="icon"><use href="#i-chat"/></svg></span>
+          <span class="nav-copy">Чат</span>
+          <span class="nav-glow"></span>
+        </button>
+        <button class="nav-item" data-page-link="studio">
+          <span class="nav-ico"><svg class="icon"><use href="#i-layout"/></svg></span>
+          <span class="nav-copy">Студия сайтов</span>
+          <span class="nav-tag">new</span>
+          <span class="nav-glow"></span>
+        </button>
+        <button class="nav-item" data-page-link="images">
+          <span class="nav-ico"><svg class="icon"><use href="#i-image"/></svg></span>
+          <span class="nav-copy">Картинки</span>
+          <span class="nav-glow"></span>
+        </button>
+        <button class="nav-item" data-page-link="library">
+          <span class="nav-ico"><svg class="icon"><use href="#i-library"/></svg></span>
+          <span class="nav-copy">Библиотека</span>
+          <span class="nav-badge" id="libraryBadge" hidden>0</span>
+          <span class="nav-glow"></span>
+        </button>
+        <button class="nav-item" data-page-link="features">
+          <span class="nav-ico"><svg class="icon"><use href="#i-sparkles"/></svg></span>
+          <span class="nav-copy">Возможности</span>
+          <span class="nav-glow"></span>
+        </button>
+      </nav>
+
+      <div class="sidebar-pane pane-chat" id="chatPane">
+        <button class="new-chat" id="newChatBtn">
+          <span class="new-chat-plus"><svg class="icon"><use href="#i-plus"/></svg></span>
+          <span>Новый диалог</span>
+          <span class="kbd">⌘K</span>
+        </button>
+
+        <div class="search-wrap">
+          <svg class="icon search-icon"><use href="#i-search"/></svg>
+          <input id="chatSearch" type="text" placeholder="Поиск по диалогам" autocomplete="off" />
+        </div>
+
+        <div class="chats-label">Недавние</div>
+        <nav class="chat-list" id="chatList" aria-label="История диалогов"></nav>
+      </div>
+
+      <div class="sidebar-pane pane-recent" id="recentPane" hidden>
+        <div class="chats-label">Недавние творения</div>
+        <div class="recent-list" id="recentList"></div>
+        <div class="recent-tip">
+          <span class="recent-tip-orb"></span>
+          <strong>Всё под рукой</strong>
+          <p>Сохранённые сайты и картинки появятся здесь.</p>
+        </div>
+      </div>
+
+      <div class="sidebar-foot">
+        <div class="key-card" id="keyCard" hidden>
+          <div class="key-card-head">
+            <span class="key-card-icon"><svg class="icon"><use href="#i-sparkles"/></svg></span>
+            <strong>Lumio Free</strong>
+          </div>
+          <p>Работает без ключа. Подключите Claude, Gemini или GPT для более сильных ответов.</p>
+          <button class="key-card-btn" data-open-settings>Выбрать модель</button>
+        </div>
+
+        <button class="side-btn" id="settingsBtn">
+          <svg class="icon"><use href="#i-settings"/></svg>
+          <span>Настройки</span>
+          <span class="side-btn-hint">⌘,</span>
+        </button>
+
+        <div class="legal">
+          <span class="legal-dot"></span>
+          Приватно · история и файлы локально
+        </div>
+      </div>
+    </aside>
+
+    <div class="scrim" id="scrim"></div>
+
+    <main class="main">
+      <header class="topbar" id="topbar">
+        <button class="icon-btn menu-btn" id="menuBtn" aria-label="Открыть меню">
+          <svg class="icon"><use href="#i-menu"/></svg>
+        </button>
+        <div class="topbar-title" id="topbarTitle">Новый диалог</div>
+        <div class="topbar-actions">
+          <span class="mode-chip" id="modeChip" hidden>Демо</span>
+          <button class="model-btn" id="modelBtn" aria-haspopup="true" aria-expanded="false">
+            <span class="model-dot"></span>
+            <span class="model-label" id="modelLabel">GPT-4o mini</span>
+            <svg class="icon chevron"><use href="#i-chevron"/></svg>
+          </button>
+          <div class="profile-wrap">
+            <button class="profile-btn" id="profileBtn" type="button" aria-haspopup="true" aria-expanded="false" title="Профиль">
+              <span class="avatar avatar-sm" id="profileAvatar">A</span>
+              <span class="profile-name" id="profileName">Гость</span>
+              <svg class="icon chevron"><use href="#i-chevron"/></svg>
+            </button>
+            <div class="profile-menu" id="profileMenu" role="menu" hidden>
+              <div class="profile-menu-head">
+                <span class="avatar avatar-md" id="profileMenuAvatar">A</span>
+                <div>
+                  <strong id="profileMenuName">Гость</strong>
+                  <span id="profileMenuEmail">локальный аккаунт</span>
+                </div>
+              </div>
+              <button class="profile-menu-item" data-profile-action="profile" type="button" role="menuitem">
+                <svg class="icon"><use href="#i-settings"/></svg> Профиль и ник
+              </button>
+              <button class="profile-menu-item" data-profile-action="login" type="button" role="menuitem" hidden>
+                <svg class="icon"><use href="#i-key"/></svg> Войти в аккаунт
+              </button>
+              <button class="profile-menu-item danger" data-profile-action="logout" type="button" role="menuitem">
+                <svg class="icon"><use href="#i-arrow-right"/></svg> Выйти
+              </button>
+            </div>
+          </div>
+          <button class="icon-btn" id="exportBtn" title="Экспортировать диалог" aria-label="Экспортировать диалог" disabled>
+            <svg class="icon"><use href="#i-download"/></svg>
+          </button>
+          <button class="icon-btn" id="settingsBtnTop" title="Настройки" aria-label="Настройки">
+            <svg class="icon"><use href="#i-settings"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <div class="model-menu" id="modelMenu" role="menu" hidden>
+        <div class="model-menu-head">Выберите модель</div>
+        <div class="model-menu-list" id="modelMenuList"></div>
+        <button class="model-menu-foot" id="modelMenuSettings">
+          <svg class="icon"><use href="#i-settings"/></svg>
+          Настроить подключение
+        </button>
+      </div>
+
+      <div class="pages" id="pages">
+        <section class="page page-chat active" data-page="chat">
+          <section class="stage" id="stage" aria-live="polite">
+            <div class="welcome" id="welcome">
+              <div class="hero-orb-wrap">
+                <span class="hero-ring ring-1"></span>
+                <span class="hero-ring ring-2"></span>
+                <span class="hero-orb"><span class="hero-orb-shine"></span></span>
+              </div>
+              <h1>Привет, <span class="grad" id="userNickname">Гость</span></h1>
+              <p class="hero-sub">Я <strong id="assistantNameWelcome">Aura</strong> — ИИ-ассистент, студия сайтов и генератор картинок.<br />Спросите что угодно — или создайте что-то новое.</p>
+              <button class="hero-status" id="heroStatus" data-open-settings>
+                <span class="status-dot"></span>
+                <span id="heroStatusText">Lumio Free · работает без ключа</span>
+                <svg class="icon"><use href="#i-arrow-ne"/></svg>
+              </button>
+
+              <div class="welcome-quick">
+                <button class="quick-pill" data-go="studio"><svg class="icon"><use href="#i-layout"/></svg> Собрать сайт <span>→</span></button>
+                <button class="quick-pill" data-go="images"><svg class="icon"><use href="#i-image"/></svg> Нарисовать картинку <span>→</span></button>
+              </div>
+
+              <div class="suggestions" id="suggestions">
+                <button class="suggestion" data-prompt="Объясни квантовую запутанность простыми словами, с аналогиями и примером.">
+                  <span class="s-icon"><svg class="icon"><use href="#i-sparkles"/></svg></span>
+                  <span class="s-copy"><strong>Объясни сложное</strong><small>просто, по шагам, с примерами</small></span>
+                  <span class="s-arrow"><svg class="icon"><use href="#i-arrow-ne"/></svg></span>
+                </button>
+                <button class="suggestion" data-prompt="Помоги составить реалистичный план запуска онлайн-проекта за 30 дней. Учти бюджет, риски и первые шаги.">
+                  <span class="s-icon"><svg class="icon"><use href="#i-compass"/></svg></span>
+                  <span class="s-copy"><strong>Составь план</strong><small>от идеи до результата</small></span>
+                  <span class="s-arrow"><svg class="icon"><use href="#i-arrow-ne"/></svg></span>
+                </button>
+                <button class="suggestion" data-prompt="Напиши на Python скрипт, который сортирует файлы в папке по типам. Добавь комментарии и объясни, как запустить.">
+                  <span class="s-icon"><svg class="icon"><use href="#i-code"/></svg></span>
+                  <span class="s-copy"><strong>Напиши код</strong><small>чистый, с объяснением</small></span>
+                  <span class="s-arrow"><svg class="icon"><use href="#i-arrow-ne"/></svg></span>
+                </button>
+                <button class="suggestion" data-prompt="Придумай 10 идей для контента о путешествиях: цепляющие, разные по формату, без банальностей.">
+                  <span class="s-icon"><svg class="icon"><use href="#i-bulb"/></svg></span>
+                  <span class="s-copy"><strong>Придумай идеи</strong><small>для контента и бизнеса</small></span>
+                  <span class="s-arrow"><svg class="icon"><use href="#i-arrow-ne"/></svg></span>
+                </button>
+              </div>
+            </div>
+
+            <div class="messages" id="messages" hidden></div>
+          </section>
+
+          <div class="composer-zone">
+            <div class="composer" id="composer">
+              <div class="composer-inner">
+                <textarea id="input" rows="1" placeholder="Спросите Aura о чём угодно…" aria-label="Сообщение"></textarea>
+                <div class="composer-bar">
+                  <div class="composer-left">
+                    <button class="icon-btn attach-btn" id="attachBtn" title="Прикрепить текстовый файл" aria-label="Прикрепить файл">
+                      <svg class="icon"><use href="#i-clip"/></svg>
+                    </button>
+                    <input type="file" id="fileInput" hidden accept=".txt,.md,.markdown,.json,.csv,.js,.mjs,.ts,.tsx,.jsx,.html,.css,.py,.rb,.go,.rs,.java,.c,.cpp,.h,.php,.sql,.sh,.bash,.yml,.yaml,.xml,.log,.swift,.kt,.toml,.ini,.env" />
+                    <span class="composer-hint" id="composerHint">Enter — отправить · Shift + Enter — новая строка</span>
+                  </div>
+                  <div class="composer-right">
+                    <span class="composer-model" id="composerModel">GPT-4o mini</span>
+                    <button class="send-btn" id="sendBtn" aria-label="Отправить" disabled>
+                      <svg class="icon send-icon"><use href="#i-arrow-up"/></svg>
+                      <svg class="icon stop-icon"><use href="#i-stop"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="disclaimer" id="assistantDisclaimer">Aura может ошибаться. Проверяйте важную информацию.</p>
+          </div>
+        </section>
+
+        <section class="page page-studio" data-page="studio" hidden>
+          <div class="page-scroll">
+            <div class="page-wrap studio-wrap">
+              <header class="page-hero studio-hero reveal">
+                <div class="eyebrow"><span class="live-dot"></span> Lumio Studio <span class="mini-badge">beta</span></div>
+                <h1 class="page-title">Сайт, который <span class="grad-anim">оживает</span></h1>
+                <p class="page-sub">Опишите идею — Lumio соберёт готовую страницу с дизайном, анимациями и адаптивом. Скачайте HTML или сохраните в библиотеку.</p>
+                <div class="hero-float-cards" aria-hidden="true">
+                  <span class="float-card fc-1"><svg class="icon"><use href="#i-layout"/></svg> Landing</span>
+                  <span class="float-card fc-2"><svg class="icon"><use href="#i-sparkles"/></svg> Motion</span>
+                  <span class="float-card fc-3"><svg class="icon"><use href="#i-code"/></svg> HTML</span>
+                </div>
+              </header>
+
+              <div class="studio-prompt reveal">
+                <div class="prompt-top">
+                  <span class="prompt-label"><svg class="icon"><use href="#i-wand"/></svg> Опишите сайт</span>
+                  <span class="prompt-counter" id="sitePromptCount">0 / 500</span>
+                </div>
+                <textarea id="sitePrompt" maxlength="500" rows="3" placeholder="Например: сайт для кофейни «Север» — тёмный минимализм, крупные фото, меню, отзывы и кнопка брони"></textarea>
+                <div class="chip-row" id="siteStyles">
+                  <button class="chip active" data-site-style="dark">Тёмный</button>
+                  <button class="chip" data-site-style="light">Светлый</button>
+                  <button class="chip" data-site-style="neon">Неон</button>
+                  <button class="chip" data-site-style="glass">Стекло</button>
+                  <button class="chip" data-site-style="minimal">Минимализм</button>
+                </div>
+                <div class="prompt-foot">
+                  <span class="prompt-hint">Попробуйте: «портфолио фотографа в стиле неон»</span>
+                  <div class="prompt-actions">
+                    <button class="btn-ghost-mini" id="siteSurpriseBtn" type="button"><svg class="icon"><use href="#i-sparkles"/></svg> Случайная идея</button>
+                    <button class="btn-primary btn-lg" id="generateSiteBtn" type="button"><span class="btn-shine"></span><svg class="icon"><use href="#i-wand"/></svg> <span>Собрать сайт</span></button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="studio-workspace reveal" id="studioWorkspace">
+                <div class="studio-toolbar">
+                  <div class="segmented" id="studioViewToggle">
+                    <button class="active" data-view="preview">Превью</button>
+                    <button data-view="code"><svg class="icon"><use href="#i-code"/></svg> Код</button>
+                  </div>
+                  <div class="studio-device" id="studioDeviceToggle" aria-label="Размер превью">
+                    <button class="active" data-device="desktop" title="Десктоп" aria-label="Десктоп"><svg class="icon"><use href="#i-monitor"/></svg></button>
+                    <button data-device="mobile" title="Телефон" aria-label="Телефон"><svg class="icon"><use href="#i-phone"/></svg></button>
+                  </div>
+                  <div class="studio-actions">
+                    <span class="studio-model-tag" id="studioModelTag">Lumio Free</span>
+                    <button class="mini-btn" id="saveSiteBtn" disabled><svg class="icon"><use href="#i-bookmark"/></svg> <span>Сохранить</span></button>
+                    <button class="mini-btn" id="downloadSiteBtn" disabled><svg class="icon"><use href="#i-download"/></svg> HTML</button>
+                    <button class="mini-btn mini-icon" id="openSiteBtn" disabled title="Открыть в новой вкладке" aria-label="Открыть в новой вкладке"><svg class="icon"><use href="#i-external"/></svg></button>
+                  </div>
+                </div>
+
+                <div class="studio-canvas" id="studioCanvas" data-device="desktop">
+                  <div class="studio-empty" id="studioEmpty">
+                    <div class="mini-orb"></div>
+                    <strong>Здесь появится сайт</strong>
+                    <span>Опишите проект и нажмите «Собрать сайт» — обычно это занимает 20–60 секунд.</span>
+                    <div class="empty-pills"><span>HTML</span><span>CSS</span><span>JS</span></div>
+                  </div>
+
+                  <div class="studio-generating" id="studioGenerating" hidden>
+                    <div class="gen-orb"><span class="gen-ring"></span><span class="gen-ring g2"></span><span class="gen-core"></span></div>
+                    <div class="gen-hourglass" aria-hidden="true"><svg class="icon"><use href="#i-hourglass"/></svg></div>
+                    <div class="gen-title" id="genTitle">Lumio анализирует идею</div>
+                    <div class="gen-sub">Собираем структуру, палитру и анимации · 20–60 секунд</div>
+                    <div class="gen-progress"><i id="genProgressBar"></i></div>
+                    <div class="gen-steps" id="genSteps">
+                      <span class="active" data-step="0">Идея</span>
+                      <span data-step="1">Структура</span>
+                      <span data-step="2">Стиль</span>
+                      <span data-step="3">Анимации</span>
+                      <span data-step="4">Финал</span>
+                    </div>
+                  </div>
+
+                  <div class="preview-wrap" id="previewWrap" hidden>
+                    <iframe id="sitePreview" title="Превью сайта" sandbox="allow-scripts allow-forms allow-modals"></iframe>
+                  </div>
+
+                  <div class="code-wrap" id="codeWrap" hidden>
+                    <button class="code-copy-float" id="copySiteCode" type="button"><svg class="icon"><use href="#i-copy"/></svg> Копировать</button>
+                    <pre><code id="siteCode"></code></pre>
+                  </div>
+                </div>
+
+                <div class="studio-statusbar">
+                  <span class="studio-status-left"><span class="status-led" id="studioLed"></span><span id="studioStatus">Готов к работе</span></span>
+                  <span id="studioMeta">Демо-режим · шаблоны</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="page page-images" data-page="images" hidden>
+          <div class="page-scroll">
+            <div class="page-wrap">
+              <header class="page-hero images-hero reveal">
+                <div class="eyebrow"><span class="live-dot"></span> Lumio Vision</div>
+                <h1 class="page-title">Картинки из <span class="grad-anim">слов</span></h1>
+                <p class="page-sub">Опишите сцену — получите изображение. Работает без ключей и настроек: просто начните с идеи.</p>
+                <div class="image-float-stack" aria-hidden="true">
+                  <span class="img-float f1"></span>
+                  <span class="img-float f2"></span>
+                  <span class="img-float f3"></span>
+                  <span class="img-float f4"></span>
+                </div>
+              </header>
+
+              <div class="vision-panel reveal">
+                <div class="vision-input">
+                  <textarea id="imagePrompt" rows="2" maxlength="600" placeholder="Например: неоновый Токио под дождём, кинематографичный свет, отражения в лужах"></textarea>
+                  <button class="btn-primary btn-lg vision-generate" id="generateImageBtn" type="button"><span class="btn-shine"></span><svg class="icon"><use href="#i-sparkles"/></svg> <span>Создать</span></button>
+                </div>
+                <div class="vision-options">
+                  <div class="chip-row" id="imageStyles">
+                    <button class="chip active" data-image-style="cinematic">Кинематограф</button>
+                    <button class="chip" data-image-style="photo">Фото</button>
+                    <button class="chip" data-image-style="3d">3D</button>
+                    <button class="chip" data-image-style="anime">Аниме</button>
+                    <button class="chip" data-image-style="neon">Неон</button>
+                    <button class="chip" data-image-style="minimal">Минимализм</button>
+                  </div>
+                  <div class="aspect-toggle" id="imageAspect" aria-label="Формат изображения">
+                    <button class="active" data-aspect="1:1">1:1</button>
+                    <button data-aspect="16:9">16:9</button>
+                    <button data-aspect="9:16">9:16</button>
+                  </div>
+                </div>
+                <div class="idea-row" id="imageIdeas">
+                  <button class="idea-chip" data-idea="Неоновый Токио под дождём, кинематографичный свет, отражения в лужах">Неоновый Токио</button>
+                  <button class="idea-chip" data-idea="Портрет космонавта в стеклянном шлеме, студийный свет, гиперреализм">Космонавт</button>
+                  <button class="idea-chip" data-idea="Уютная кофейня в скандинавском стиле, мягкий утренний свет, плёночная фотография">Уютная кофейня</button>
+                  <button class="idea-chip" data-idea="Фантастический летающий остров над облаками, закат, эпический пейзаж, 3D">Летающий остров</button>
+                </div>
+                <p class="vision-limit" id="imageLimitNote">
+                  <svg class="icon"><use href="#i-clock"/></svg>
+                  <span>Бесплатно и без ключей. Иногда сервис делает короткую паузу.</span>
+                </p>
+              </div>
+
+              <div class="gallery-head">
+                <h2>Галерея</h2>
+                <span id="galleryCount">Пока пусто</span>
+              </div>
+              <div class="gallery-grid" id="imageGrid"></div>
+              <div class="gallery-empty" id="galleryEmpty">
+                <div class="gallery-empty-orb"></div>
+                <strong>Здесь появятся ваши изображения</strong>
+                <p>Опишите идею сверху или выберите готовую подсказку. Первая картинка обычно занимает 10–30 секунд.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="page page-library" data-page="library" hidden>
+          <div class="page-scroll">
+            <div class="page-wrap">
+              <header class="page-hero library-hero reveal">
+                <div class="eyebrow"><span class="live-dot"></span> Личный архив</div>
+                <h1 class="page-title">Библиотека</h1>
+                <p class="page-sub">Сайты, изображения и диалоги — всё, что вы сохранили, в одном месте. Данные остаются в этом браузере.</p>
+              </header>
+
+              <div class="library-tabs reveal" id="libraryTabs">
+                <button class="library-tab active" data-lib-tab="sites">Сайты <span id="sitesCount">0</span></button>
+                <button class="library-tab" data-lib-tab="images">Картинки <span id="imagesCount">0</span></button>
+                <button class="library-tab" data-lib-tab="chats">Диалоги <span id="chatsCount">0</span></button>
+              </div>
+
+              <div class="library-content" id="libraryContent"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="page page-features" data-page="features" hidden>
+          <div class="page-scroll features-scroll">
+            <div class="features-wrap">
+              <header class="features-hero">
+                <div class="f-particles" aria-hidden="true">
+                  <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <div class="f-orb-wrap" aria-hidden="true">
+                  <span class="f-orbit o1"></span>
+                  <span class="f-orbit o2"></span>
+                  <span class="f-orbit o3"></span>
+                  <span class="f-orb"><span class="f-orb-shine"></span></span>
+                </div>
+                <div class="eyebrow">Lumio 1.0 · AI workspace</div>
+                <h1>Не просто чат.<br /><span class="grad-anim">Целая AI-студия.</span></h1>
+                <p class="f-type">Lumio умеет <span id="typeWord">писать код</span><span class="type-caret" aria-hidden="true"></span></p>
+                <div class="f-cta">
+                  <button class="btn-primary btn-lg" data-go="chat"><span class="btn-shine"></span> Открыть чат <svg class="icon"><use href="#i-arrow-right"/></svg></button>
+                  <button class="btn-outline btn-lg" data-go="studio"><svg class="icon"><use href="#i-layout"/></svg> Собрать сайт</button>
+                </div>
+                <div class="stats-row" id="statsRow">
+                  <div class="stat"><strong data-count="5">0</strong><span>страниц</span></div>
+                  <div class="stat"><strong data-count="3">0</strong><span>AI-инструмента</span></div>
+                  <div class="stat"><strong data-count="100" data-suffix="%">0</strong><span>локально</span></div>
+                  <div class="stat"><strong data-count="60">0</strong><span>fps анимаций</span></div>
+                </div>
+              </header>
+
+              <div class="marquee" aria-hidden="true">
+                <div class="marquee-track">
+                  <span>ЧАТ</span><i>✦</i><span>САЙТЫ</span><i>✦</i><span>КАРТИНКИ</span><i>✦</i><span>АНИМАЦИИ</span><i>✦</i><span>КОД</span><i>✦</i><span>ИДЕИ</span><i>✦</i>
+                  <span>ЧАТ</span><i>✦</i><span>САЙТЫ</span><i>✦</i><span>КАРТИНКИ</span><i>✦</i><span>АНИМАЦИИ</span><i>✦</i><span>КОД</span><i>✦</i><span>ИДЕИ</span><i>✦</i>
+                </div>
+              </div>
+
+              <section class="feature-section">
+                <div class="section-head reveal">
+                  <div class="eyebrow">Возможности</div>
+                  <h2>Один ассистент. <span class="grad">Три суперсилы.</span></h2>
+                  <p>От разговора до готового результата — без переключения между сервисами.</p>
+                </div>
+
+                <div class="feature-grid">
+                  <article class="feature-card reveal">
+                    <span class="feature-icon fi-1"><svg class="icon"><use href="#i-chat"/></svg></span>
+                    <span class="feature-num">01</span>
+                    <h3>Умный диалог</h3>
+                    <p>Объяснит сложное, напишет текст, разберёт код и поможет принять решение. Claude, Gemini, GPT и любые модели.</p>
+                    <button class="feature-link" data-go="chat">Открыть чат <svg class="icon"><use href="#i-arrow-right"/></svg></button>
+                  </article>
+
+                  <article class="feature-card reveal">
+                    <span class="feature-icon fi-2"><svg class="icon"><use href="#i-layout"/></svg></span>
+                    <span class="feature-num">02</span>
+                    <h3>Студия сайтов</h3>
+                    <p>Опишите идею — получите целую страницу: структура, стиль, анимации и адаптив. Скачивание в один клик.</p>
+                    <button class="feature-link" data-go="studio">Собрать сайт <svg class="icon"><use href="#i-arrow-right"/></svg></button>
+                  </article>
+
+                  <article class="feature-card reveal">
+                    <span class="feature-icon fi-3"><svg class="icon"><use href="#i-image"/></svg></span>
+                    <span class="feature-num">03</span>
+                    <h3>Генератор картинок</h3>
+                    <p>Превратите описание в изображение: кино, фото, 3D, аниме или неон. Работает сразу, без ключей.</p>
+                    <button class="feature-link" data-go="images">Создать картинку <svg class="icon"><use href="#i-arrow-right"/></svg></button>
+                  </article>
+
+                  <article class="feature-card reveal">
+                    <span class="feature-icon fi-4"><svg class="icon"><use href="#i-zap"/></svg></span>
+                    <span class="feature-num">04</span>
+                    <h3>Живой интерфейс</h3>
+                    <p>Плавные переходы, стриминг ответов, анимации и продуманные детали. Приятно пользоваться каждый день.</p>
+                    <button class="feature-link" data-go="features">Посмотреть <svg class="icon"><use href="#i-arrow-right"/></svg></button>
+                  </article>
+
+                  <article class="feature-card reveal">
+                    <span class="feature-icon fi-5"><svg class="icon"><use href="#i-shield"/></svg></span>
+                    <span class="feature-num">05</span>
+                    <h3>Приватность</h3>
+                    <p>Ключи остаются в браузере, история и библиотека — в локальном хранилище. Никаких аккаунтов и облаков.</p>
+                    <button class="feature-link" data-open-settings>Настроить <svg class="icon"><use href="#i-arrow-right"/></svg></button>
+                  </article>
+
+                  <article class="feature-card reveal">
+                    <span class="feature-icon fi-6"><svg class="icon"><use href="#i-globe"/></svg></span>
+                    <span class="feature-num">06</span>
+                    <h3>Любые провайдеры</h3>
+                    <p>OpenRouter, OpenAI, Anthropic, Google Gemini или собственный OpenAI-совместимый сервер. Выбор за вами.</p>
+                    <button class="feature-link" data-open-settings>Подключить <svg class="icon"><use href="#i-arrow-right"/></svg></button>
+                  </article>
+                </div>
+              </section>
+
+              <section class="how-section">
+                <div class="section-head reveal">
+                  <div class="eyebrow">Как это работает</div>
+                  <h2>Три шага до <span class="grad">результата</span></h2>
+                </div>
+                <div class="steps-row">
+                  <article class="step-card reveal">
+                    <span class="step-index">01</span>
+                    <span class="step-line"></span>
+                    <h3>Опишите идею</h3>
+                    <p>Обычными словами: что нужно, для кого и какое настроение.</p>
+                  </article>
+                  <article class="step-card reveal">
+                    <span class="step-index">02</span>
+                    <span class="step-line"></span>
+                    <h3>Lumio собирает</h3>
+                    <p>Модель продумывает структуру, тексты, визуал и анимации.</p>
+                  </article>
+                  <article class="step-card reveal">
+                    <span class="step-index">03</span>
+                    <span class="step-line"></span>
+                    <h3>Забирайте результат</h3>
+                    <p>Смотрите превью, скачивайте HTML или сохраняйте в библиотеку.</p>
+                  </article>
+                </div>
+              </section>
+
+              <section class="final-cta reveal">
+                <span class="final-orb" aria-hidden="true"></span>
+                <div class="final-copy">
+                  <div class="eyebrow">Готовы попробовать?</div>
+                  <h2>Идея уже есть.<br /><span class="grad">Осталось начать.</span></h2>
+                  <p>Чат, сайты и картинки — в одном пространстве. Без установки и лишних шагов.</p>
+                  <div class="f-cta">
+                    <button class="btn-primary btn-lg" data-go="chat"><span class="btn-shine"></span> Начать бесплатно <svg class="icon"><use href="#i-arrow-right"/></svg></button>
+                    <button class="btn-outline btn-lg" data-go="images"><svg class="icon"><use href="#i-image"/></svg> Попробовать галерею</button>
+                  </div>
+                </div>
+                <span class="final-mark" aria-hidden="true">Lumio</span>
+              </section>
+
+              <footer class="f-footer">
+                <span>Lumio · локальное AI-пространство</span>
+                <span>Сделано с вниманием к деталям ✦</span>
+              </footer>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="auth-backdrop" id="authModal" hidden>
+    <div class="auth-card" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+      <button class="auth-close" id="authClose" type="button" aria-label="Закрыть">
+        <svg class="icon"><use href="#i-close"/></svg>
+      </button>
+
+      <div class="auth-brand">
+        <span class="landing-brand-mark"><svg class="icon"><use href="#i-hourglass"/></svg></span>
+        <span>Lumio</span>
+      </div>
+
+      <div class="auth-tabs" role="tablist" aria-label="Вход или регистрация">
+        <button class="auth-tab active" type="button" role="tab" data-auth-tab="login">Вход</button>
+        <button class="auth-tab" type="button" role="tab" data-auth-tab="register">Регистрация</button>
+      </div>
+
+      <h2 id="authTitle">С возвращением</h2>
+      <p class="auth-subtitle" id="authSubtitle">Войдите, чтобы вернуться к своим диалогам и проектам.</p>
+
+      <form class="auth-form" id="authForm" novalidate>
+        <label class="auth-field" data-auth-only="register" hidden>
+          <span>Ник</span>
+          <input id="authNickname" type="text" maxlength="24" autocomplete="nickname" placeholder="Например, Север" spellcheck="false" />
+        </label>
+
+        <label class="auth-field">
+          <span>Email</span>
+          <input id="authEmail" type="email" autocomplete="email" placeholder="you@example.com" spellcheck="false" />
+        </label>
+
+        <label class="auth-field">
+          <span>Пароль</span>
+          <div class="auth-password">
+            <input id="authPassword" type="password" autocomplete="current-password" placeholder="Минимум 6 символов" />
+            <button class="auth-eye" id="authPasswordToggle" type="button" aria-label="Показать пароль">
+              <svg class="icon"><use href="#i-eye"/></svg>
+            </button>
+          </div>
+        </label>
+
+        <label class="auth-field" data-auth-only="register" hidden>
+          <span>Повторите пароль</span>
+          <input id="authPassword2" type="password" autocomplete="new-password" placeholder="Ещё раз" />
+        </label>
+
+        <div class="auth-error" id="authError" hidden></div>
+
+        <button class="auth-submit" id="authSubmit" type="submit">
+          <span class="btn-shine"></span>Войти
+        </button>
+      </form>
+
+      <div class="auth-divider"><span>или</span></div>
+      <button class="auth-guest" id="authGuest" type="button">Продолжить как гость</button>
+      <p class="auth-note" id="authNote">Аккаунт хранится в этом браузере. Пароль не отправляется на сервер.</p>
+    </div>
+  </div>
+
+  <div class="modal-backdrop profile-backdrop" id="profileModal" hidden>
+    <div class="modal profile-modal" role="dialog" aria-modal="true" aria-labelledby="profileTitle">
+      <div class="modal-head">
+        <div>
+          <h2 id="profileTitle">Профиль</h2>
+          <p>Ник и цвет аватара видны только вам.</p>
+        </div>
+        <button class="icon-btn" id="profileClose" type="button" aria-label="Закрыть">
+          <svg class="icon"><use href="#i-close"/></svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="profile-hero">
+          <span class="avatar avatar-xl" id="profileModalAvatar">A</span>
+          <div>
+            <strong id="profileModalName">Гость</strong>
+            <span id="profileModalEmail">локальный аккаунт</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="profileNicknameInput">Ник</label>
+          <input id="profileNicknameInput" type="text" maxlength="24" autocomplete="nickname" placeholder="Как к вам обращаться?" spellcheck="false" />
+          <p class="field-note">Показывается в приветствии, меню и на лендинге.</p>
+        </div>
+
+        <div class="field">
+          <span class="profile-color-label">Цвет аватара</span>
+          <div class="avatar-colors" id="avatarColors"></div>
+        </div>
+      </div>
+
+      <div class="modal-foot">
+        <button class="btn btn-ghost danger-text" id="profileLogout" type="button">Выйти из аккаунта</button>
+        <div class="modal-foot-right">
+          <button class="btn btn-ghost" id="profileCancel" type="button">Отмена</button>
+          <button class="btn btn-primary" id="profileSave" type="button">Сохранить</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="settingsModal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+      <div class="modal-head">
+        <div>
+          <h2 id="settingsTitle">Настройки</h2>
+          <p>Подключите модель — ключ хранится только в вашем браузере.</p>
+        </div>
+        <button class="icon-btn" id="settingsClose" aria-label="Закрыть">
+          <svg class="icon"><use href="#i-close"/></svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="field">
+          <label for="providerSelect">Провайдер</label>
+          <select id="providerSelect">
+            <option value="free">Lumio Free — без ключа, работает сразу</option>
+            <option value="openrouter">OpenRouter — сотни моделей, один ключ</option>
+            <option value="anthropic">Anthropic — Claude напрямую</option>
+            <option value="gemini">Google Gemini — быстро и бесплатно</option>
+            <option value="openai">OpenAI — GPT-модели напрямую</option>
+            <option value="custom">Свой API — OpenAI-совместимый</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="assistantNameInput">Имя ассистента</label>
+          <input id="assistantNameInput" type="text" maxlength="24" placeholder="Aura" autocomplete="off" spellcheck="false" />
+          <p class="field-note">Так ассистент представляется в чате. Например: Aura, Nova, Orion — любое имя до 24 символов.</p>
+        </div>
+
+        <div class="field">
+          <label for="apiKeyInput">API-ключ</label>
+          <div class="key-input-wrap">
+            <input id="apiKeyInput" type="password" placeholder="sk-or-v1-…" autocomplete="off" spellcheck="false" />
+            <button class="icon-btn eye-btn" id="toggleKey" type="button" aria-label="Показать ключ">
+              <svg class="icon"><use href="#i-eye"/></svg>
+            </button>
+          </div>
+          <p class="field-note" id="keyNote">Ключ отправляется только вашему провайдеру через локальный сервер. Он не сохраняется на сервере.</p>
+        </div>
+
+        <div class="field">
+          <div class="label-row">
+            <label for="modelInput">Модель</label>
+            <button class="link-btn" id="loadModelsBtn" type="button">Загрузить список</button>
+          </div>
+          <input id="modelInput" type="text" list="modelOptions" placeholder="openai/gpt-4o-mini" autocomplete="off" spellcheck="false" />
+          <datalist id="modelOptions"></datalist>
+          <p class="field-note" id="modelNote">Можно ввести любое имя модели. У OpenRouter есть бесплатные модели с суффиксом <code>:free</code>.</p>
+        </div>
+
+        <details class="advanced">
+          <summary>Дополнительно</summary>
+
+          <div class="field">
+            <label for="temperatureInput">Температура <span class="temp-value" id="tempValue">0.7</span></label>
+            <input id="temperatureInput" type="range" min="0" max="1.5" step="0.1" value="0.7" />
+            <p class="field-note">Ниже — точнее и стабильнее. Выше — креативнее и разнообразнее.</p>
+          </div>
+
+          <div class="field">
+            <label for="baseUrlInput">Base URL</label>
+            <input id="baseUrlInput" type="text" placeholder="https://openrouter.ai/api/v1" autocomplete="off" spellcheck="false" />
+          </div>
+
+          <div class="field">
+            <label for="systemPromptInput">Системная инструкция</label>
+            <textarea id="systemPromptInput" rows="4" spellcheck="false"></textarea>
+          </div>
+
+          <div class="field">
+            <label class="switch-row" for="autoCreateInput">
+              <span>
+                <strong>Создавать по запросу</strong>
+                <small>Если в сообщении есть «сделай сайт» или «нарисуй картинку», Lumio сразу запустит нужный инструмент.</small>
+              </span>
+              <input id="autoCreateInput" type="checkbox" />
+              <i class="switch-ui" aria-hidden="true"></i>
+            </label>
+          </div>
+        </details>
+      </div>
+
+      <div class="modal-foot">
+        <button class="btn btn-ghost" id="resetSettingsBtn" type="button">Сбросить</button>
+        <div class="modal-foot-right">
+          <button class="btn btn-ghost" id="settingsCancel" type="button">Отмена</button>
+          <button class="btn btn-primary" id="settingsSave" type="button">Сохранить</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lightbox" id="imageLightbox" hidden>
+    <div class="lightbox-backdrop" data-close-lightbox></div>
+    <div class="lightbox-card" role="dialog" aria-modal="true" aria-labelledby="lightboxPrompt">
+      <button class="lightbox-close" data-close-lightbox aria-label="Закрыть">
+        <svg class="icon"><use href="#i-close"/></svg>
+      </button>
+      <div class="lightbox-media"><img id="lightboxImage" alt="Сгенерированное изображение" /></div>
+      <div class="lightbox-info">
+        <div class="eyebrow">Lumio Vision</div>
+        <p id="lightboxPrompt"></p>
+        <div class="lightbox-actions">
+          <button class="btn-outline btn-lg" id="lightboxDownload"><svg class="icon"><use href="#i-download"/></svg> Скачать</button>
+          <button class="btn-primary btn-lg" id="lightboxSave"><span class="btn-shine"></span><svg class="icon"><use href="#i-bookmark"/></svg> В библиотеку</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-wrap" id="toastWrap" role="status" aria-live="polite"></div>
+
+  <noscript>
+    <div class="noscript">Для работы Lumio включите JavaScript в браузере.</div>
+  </noscript>
+
+  <script src="/app.js"></script>
+</body>
+</html>
